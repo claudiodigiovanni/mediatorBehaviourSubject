@@ -1,8 +1,8 @@
 <p>
   search works!
-  <input  type="text" name="search" value={{text}}/><br>
+  <input  type="text" name="search" value={{text}} #myinput/><br>
   <input  type="text" name="search" [(ngModel)]="text"/>
-  <button (click)="clear()">clear</button>
+  <button (click)="clear(myinput)">clear</button>
 
   <br/>
 

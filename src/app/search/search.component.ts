@@ -15,8 +15,9 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  clear(){
-    this.text = ""
+  clear(input){
+    //this.text = ""
+    input.value = "";
     console.log(this.text)
   }
 
