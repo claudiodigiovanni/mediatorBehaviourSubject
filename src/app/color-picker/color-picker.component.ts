@@ -17,6 +17,10 @@ export class ColorPickerComponent implements OnInit {
   ngOnInit() {
   }
 
+  reset(){
+    this.color.emit('..YTBD...')
+  }
+
   chosen(chosen){
     console.log('emit');
     
