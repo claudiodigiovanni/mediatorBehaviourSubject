@@ -7,4 +7,9 @@
 <app-color-picker #picker (color)="myeventHandler($event)"></app-color-picker>
 <app-color-previewer [color]="color"></app-color-previewer>
 <button (click)="picker.reset()">reset</button>
+<ul>
+  <li *ngFor="let item of items | async">{{item.name}}</li>
+</ul>
+
+<button (click)="create()">New User</button>
 <router-outlet></router-outlet>
