@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular1';
+  color:string = "Yet to be defined....."
+  myeventHandler(chosencolor){
+    console.log(chosencolor)
+    this.color = chosencolor;
+  }
+
+
 }

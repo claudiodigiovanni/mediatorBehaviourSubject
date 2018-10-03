@@ -6,11 +6,15 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
+import { ColorPickerComponent } from './color-picker/color-picker.component';
+import { ColorPreviewerComponent } from './color-previewer/color-previewer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent
+    SearchComponent,
+    ColorPickerComponent,
+    ColorPreviewerComponent
   ],
   imports: [
     BrowserModule,
