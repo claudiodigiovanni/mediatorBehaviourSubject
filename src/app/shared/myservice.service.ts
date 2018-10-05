@@ -12,8 +12,26 @@ export class MyserviceService {
 
   loadItems():Observable<any>{
     console.log('service call....');
+    this.deleteItem()
+   return  this.http.get('http://localhost:3000/users')
+  }
+
+  updateItem(){
+    console.log('updateItem call....');
     
-   return  this.http.get('https://jsonplaceholder.typicode.com/users')
+    this.http.post('http://localhost:3000/users/5bb534bafb6fc0504a0f74a3',{name:'ccccc',email:'xxxxx'}).subscribe(item => console.log(item))
+  }
+
+  createItem(){
+    console.log('createItem call....');
+    
+    this.http.post('http://localhost:3000/users/',{name:'nuovo',email:'nuovo'}).subscribe(item => console.log(item))
+  }
+
+  deleteItem(){
+    console.log('deleteItem call....');
+    
+    this.http.delete('http://localhost:3000/users/5bb69022ce6fad5b242680ef').subscribe(item => console.log(item))
   }
 
   createLesson(description){

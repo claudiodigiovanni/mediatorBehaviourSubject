@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MediatorService } from 'src/app/shared/mediator.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-color-previewer',
@@ -7,12 +9,16 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ColorPreviewerComponent implements OnInit {
 
-  constructor() { }
+  items$:Observable<any>
+
+  constructor(private mediatorService:MediatorService) { }
 
   @Input('color')
   color=""
 
   ngOnInit() {
+    this.items$ = this.mediatorService.store$;
+    //this.mediatorService.store$.subscribe(val => console.log(val));
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MyserviceService } from './shared/myservice.service';
+import { MediatorService } from 'src/app/shared/mediator.service';
 
 @Component({
   selector: 'app-root',
@@ -15,15 +16,16 @@ export class AppComponent implements OnInit {
     console.log(chosencolor)
     this.color = chosencolor;
   }
-  constructor(private myservice: MyserviceService){
+
+
+  constructor(private mediatorService:MediatorService, private myservice: MyserviceService){
 
   }
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.items = this.getItems();
-    
+     this.getItems().subscribe(items => console.log(items))
   }
 
   getItems(){
@@ -31,7 +33,11 @@ export class AppComponent implements OnInit {
   }
 
   create(){
-    this.myservice.createLesson('xxx');
+   // this.myservice.createLesson('xxx');
+  }
+
+  broadcast(val){
+    this.mediatorService.setState(val);
   }
 
 

@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { MediatorService } from 'src/app/shared/mediator.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-color-picker',
@@ -7,14 +9,19 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class ColorPickerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private mediatorService:MediatorService) { }
 
   @Output('color')
   color: EventEmitter<string> = new EventEmitter<string>();
 
+  items$:Observable<any>
 
 
   ngOnInit() {
+    this.items$ = this.mediatorService.store$;
+    //this.mediatorService.store$.subscribe(val => console.log(val));
+    
+
   }
 
   reset(){
